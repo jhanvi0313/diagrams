@@ -1,0 +1,102 @@
+# Flood Forecasting Model Application Architecture
+
+# User Interface Layer
+class UserInterface:
+    def __init__(self):
+        self.create_gui()
+
+    def create_gui(self):
+        # Initialize Tkinter GUI
+        import tkinter as tk
+        from tkinter import filedialog, messagebox
+
+        self.main = tk.Tk()
+        self.main.title("FFM: Flood Forecasting Model Using Federated Learning")
+        self.main.geometry("1000x650")
+
+        # GUI Components
+        self.upload_button = tk.Button(self.main, text="Upload Flood Dataset", command=self.upload_dataset)
+        self.upload_button.pack()
+
+        self.preprocess_button = tk.Button(self.main, text="Preprocess Dataset", command=self.preprocess_data)
+        self.preprocess_button.pack()
+
+        self.train_button = tk.Button(self.main, text="Run Feed Forward Neural Network", command=self.run_ffnn)
+        self.train_button.pack()
+
+        self.main.mainloop()
+
+    def upload_dataset(self):
+        # Function to upload dataset
+        filename = filedialog.askopenfilename()
+        print(f"Dataset uploaded: {filename}")
+
+    def preprocess_data(self):
+        # Function to preprocess data
+        print("Data preprocessing...")
+
+    def run_ffnn(self):
+        # Function to run Feed Forward Neural Network
+        print("Running FFNN...")
+
+# Data Processing Layer
+class DataProcessing:
+    def upload_data(self, filename):
+        # Upload and process data
+        print(f"Uploading data from {filename}")
+
+    def preprocess_data(self, dataset):
+        # Normalize and shuffle data
+        print("Preprocessing data...")
+
+    def split_data(self, dataset):
+        # Split data into training and testing sets
+        print("Splitting data...")
+
+# Machine Learning Layer
+class MachineLearning:
+    def train_ffnn(self, X_train, y_train):
+        # Train Feed Forward Neural Network
+        print("Training FFNN...")
+
+    def train_cnn(self, X_train, y_train):
+        # Train Convolutional Neural Network
+        print("Training CNN...")
+
+    def evaluate_model(self, model, X_test, y_test):
+        # Evaluate model performance
+        print("Evaluating model...")
+
+# Server Communication Layer
+class ServerCommunication:
+    def upload_model(self, model):
+        # Upload model to centralized server
+        print("Uploading model to server...")
+
+    def receive_response(self):
+        # Receive response from server
+        print("Receiving response from server...")
+
+# Main Application
+if __name__ == "__main__":
+    # Initialize components
+    ui = UserInterface()
+    data_processing = DataProcessing()
+    ml = MachineLearning()
+    server_comm = ServerCommunication()
+
+    # Example usage
+    dataset_file = "path/to/dataset.csv"
+    data_processing.upload_data(dataset_file)
+    data_processing.preprocess_data(dataset_file)
+    data_processing.split_data(dataset_file)
+
+    # Assuming X_train and y_train are defined
+    X_train, y_train = [], []  # Placeholder for actual data
+    ml.train_ffnn(X_train, y_train)
+    ml.train_cnn(X_train, y_train)
+
+    # Upload model to server
+    model = "trained_model"  # Placeholder for actual model
+    server_comm.upload_model(model)
+    server_comm.receive_response()
